@@ -1,10 +1,10 @@
-import { FETCH_SMURF_FAILURE, FETCH_SMURF_SUCCESS, FETCH_SMURF } from "../actions"
+import { FETCH_SMURF_FAILURE, FETCH_SMURF_SUCCESS, FETCH_SMURF } from '../actions/index'
+import {ADD_SMURF_SUCCESS, ADD_SMURF_FAILURE, ADD_SMURF} from '../actions/addSmurf'
 
-export const initialState = {
-    name: '',
-    age: '', 
-    height: '',
-    id: '', 
+const initialState = {
+    smurfs: [],
+    loadingSmurfs: false,
+    errorMessage: "" 
 }
 
 export default (state = initialState, action) => {
@@ -24,6 +24,22 @@ export default (state = initialState, action) => {
                 errorMessage: action.payload.message,
                 loadingSmurfs: false,
             }
+        case ADD_SMURF:
+            return { ...state, 
+                loadingSmurfs: true, 
+                error: "" 
+            };
+        case ADD_SMURF_SUCCESS:
+            return { ...state, 
+                smurfs: action.payload, 
+                loadingSmurfs: false, 
+                error: "" 
+            };
+        case ADD_SMURF_FAILURE:
+            return { ...state, 
+                loadingSmurfs: false,
+                 error: action.payload 
+                };
         default:
             return state;            
     }
