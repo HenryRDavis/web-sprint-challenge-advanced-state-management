@@ -4,7 +4,7 @@ export const FETCH_SMURF = 'FETCH_SMURF';
 export const FETCH_SMURF_SUCCESS = 'FETCH_SMURF_SUCCESS';
 export const FETCH_SMURF_FAILURE = 'FETCH_SMURF_FAILURE';
 
-const fetchSmurfs = () => {
+export const fetchSmurfs = () => {
     return (dispatch) => {
         dispatch({ type: FETCH_SMURF })
         axios 
@@ -18,4 +18,3 @@ const fetchSmurfs = () => {
     }
 }
 
-export default fetchSmurfs;

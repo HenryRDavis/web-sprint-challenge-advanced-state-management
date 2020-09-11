@@ -1,6 +1,13 @@
 import { FETCH_SMURF_FAILURE, FETCH_SMURF_SUCCESS, FETCH_SMURF } from "../actions"
 
-export default function reducer(state, action) {
+export const initialState = {
+    name: '',
+    age: '', 
+    height: '',
+    id: '', 
+}
+
+export default (state = initialState, action) => {
     switch(action.type) {
         case FETCH_SMURF:
             return {
